@@ -95,7 +95,7 @@ export class HomePage implements OnInit, AfterViewInit {
       this.recording = false;
       if (result.value && result.value.recordDataBase64) {
         const recordData = result.value.recordDataBase64;
-        const fileName = new Date().getTime() + '.wav';
+        const fileName = new Date().getTime() + '.mp3';
         await Filesystem['writeFile']({
           path: fileName,
           directory: Directory.Data,
