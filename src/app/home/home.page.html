@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="title">
+      Gravação e reprodução de áudio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="secondary">
+  <!-- <ion-button (click)="startRecording()" expand="block">Gravar</ion-button>
+  <ion-button (click)="stopRecording()" expand="block" color="danger">Parar</ion-button> -->
+  <ion-list class="audio-list">
+    <ion-item button *ngFor="let f of storedFileNames" (click)="playFile(f)" color="secondary">
+      {{ f }}
+      <ion-button slot="end" color="danger" fill="clear" (click)="removeFile($event, f)" detail="false">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="10">
+        <span *ngIf="!recording">
+          Pressione e segure para gravar
+        </span>
+        <span *ngIf="recording">
+          {{ durationDisplay }}
+        </span>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button #recordbtn class="record-button" color="secondary">
+          <ion-icon name="mic-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

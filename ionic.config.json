@@ -1,0 +1,7 @@
+{
+  "name": "capacitor-voice-recorder",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
